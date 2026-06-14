@@ -29,7 +29,6 @@ CREATE TABLE Customer (
 ALTER TABLE Customer
 ADD (
     cusType VARCHAR2(20) CHECK (cusType IN('PERSON', 'COMPANY')),
-
     compName VARCHAR2(100),
     compRegNo VARCHAR2(30)
 );
@@ -64,7 +63,6 @@ CREATE TABLE Cases (
     caseID NUMBER(4),
     caseTypeID NUMBER(4),
     caseNo VARCHAR2(50) NOT NULL,
-    
     lawID NUMBER(4),
     caseTitle VARCHAR2(10) CHECK(caseTitle IN('SPA', 'PBB', 'HLBB', 'HPK','TNY', 'LPPSA', 'LA', 'GP', 'DIV', 'R&R', 'D', 'MISC')),
     opendate DATE DEFAULT SYSDATE NOT NULL,
@@ -85,8 +83,6 @@ CREATE TABLE CustomerCase (
     CONSTRAINT CustomerCase_cusID_FK FOREIGN KEY (cusID) REFERENCES Customer(cusID),
     CONSTRAINT CustomerCase_caseID_FK FOREIGN KEY (caseID) REFERENCES Cases(caseID)
 );
-
-
 
 CREATE TABLE Document (
     docID NUMBER(5),
